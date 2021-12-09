@@ -1,0 +1,12 @@
+{
+  "name": "HandScale",
+  "id": "1050653279142194529",
+  "api": "1.0.0",
+  "main": "build/code.js",
+  "editorType": [
+    "figjam"
+  ],
+  "containsWidget": true,
+  "widgetApi": "1.0.0",
+  "ui": "src/ui.html"
+}

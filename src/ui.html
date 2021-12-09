@@ -1,0 +1,24 @@
+<p>Start Date: <input id="start" type="date"></p>
+<p>End Date: <input id="end" type="date"></p>
+<p>Width: <input id="width" type="number" value="1000"></p>
+<!-- <p>Auto-Update: <input id="auto" type="checkbox"></p> -->
+<button id="save">Save</button>
+
+<script>
+  document.getElementById('save').onclick = () => {
+    const start = document.getElementById('start').valueAsNumber
+    const end   = document.getElementById('end').valueAsNumber
+    const width = parseInt(document.getElementById('width').value, 10)
+    // const auto  = document.getElementById('auto').checked
+    parent.postMessage({ pluginMessage: { type: 'save', start, end, width/*, auto*/ } }, '*')
+  }
+
+  onmessage = event => {
+    let { start, end, width/*, auto*/ } = event.data.pluginMessage
+
+    document.getElementById('start').valueAsNumber = start
+    document.getElementById('end').valueAsNumber   = end
+    document.getElementById('width').value         = width
+    // document.getElementById('auto').checked        = auto
+  }
+</script>
